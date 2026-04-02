@@ -5,6 +5,12 @@ import pickle
 
 import os
 
+import sklearn
+import sys
+
+st.write("Python:", sys.version)
+st.write("Sklearn:", sklearn.__version__)
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def load_model(file):
