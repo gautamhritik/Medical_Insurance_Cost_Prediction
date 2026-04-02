@@ -3,9 +3,17 @@ import numpy as np
 import pandas as pd
 import pickle
 
-rf = pickle.load(open('rf_model.pkl', 'rb'))
-rfc = pickle.load(open('rfc_model.pkl', 'rb'))
-features = pickle.load(open('features.pkl', 'rb'))
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def load_model(file):
+    with open(os.path.join(BASE_DIR, file), 'rb') as f:
+        return pickle.load(f)
+
+rf = load_model('rf_model.pkl')
+rfc = load_model('rfc_model.pkl')
+features = load_model('features.pkl')
 
 st.title("Medical Insurance Cost Predictor")
 
